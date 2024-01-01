@@ -6,14 +6,12 @@ import com.sun.net.httpserver.HttpsServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ProductController {
@@ -22,7 +20,7 @@ public class ProductController {
     private ProductRepository productRepository;
 
 
-    @GetMapping
+    @GetMapping("/getAllProducts")
     public ResponseEntity<List<Product>> getProduct(){
 
         try{
@@ -30,7 +28,7 @@ public class ProductController {
             productRepository.findAll().forEach(productList::add);
 
             if(productList.isEmpty()){
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+                return new ResponseEntity<>(productList, HttpStatus.NO_CONTENT);
             }
 
             return new ResponseEntity<>(HttpStatus.OK);
@@ -40,20 +38,28 @@ public class ProductController {
         }
 
     }
-    @GetMapping
-    public void getProductById(){
+    @GetMapping("/getProductById/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable Long id){
+
+        Optional<Product> productData = productRepository.findById(id);
+
+        if(productData.isPresent()){
+            return new ResponseEntity<>(productData , HttpStatus.Ok);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
     }
-    @PostMapping
+    @PostMapping("/addProduct")
     public void addProduct(){
 
     }
 
-    @PostMapping
+    @PostMapping("/updateProduct")
     public void updateProductById(){
 
     }
-    @DeleteMapping
+    @DeleteMapping("/deleteProduct")
     public void removeProductById(){
 
     }
