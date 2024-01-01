@@ -1,0 +1,4 @@
+com\example\ProducRegistrationCRUD\model\Product.class
+com\example\ProducRegistrationCRUD\controller\ProductController.class
+com\example\ProducRegistrationCRUD\ProducRegistrationCrudApplication.class
+com\example\ProducRegistrationCRUD\repository\ProductRepository.class
