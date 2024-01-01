@@ -9,7 +9,11 @@ The goal of this project is to implement a basic CRUD (Create, Read, Update, Del
 ## Technologies Used
 
 1. Java 17
-2. Maven ( for dependency management ) 
+2. Spring Framework
+3. Maven ( for dependency management ) 
+4. JPA / hibernate
+5. h2 database local
+
 
 
 ## CRUD Operations
