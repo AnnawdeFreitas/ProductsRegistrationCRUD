@@ -1,9 +1,9 @@
 package com.example.ProducRegistrationCRUD.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
 @Table(name = "Products")
@@ -13,10 +13,12 @@ import org.hibernate.annotations.DynamicUpdate;
 @Setter
 @ToString
 public class Product {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private int quantity;
-    private float value;
+    @Column(name = "product_value")
+    private float produc_value;
 
 }
