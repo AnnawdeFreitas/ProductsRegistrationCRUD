@@ -12,7 +12,7 @@ The goal of this project is to implement a basic CRUD (Create, Read, Update, Del
 2. Spring Framework
 3. Maven ( for dependency management ) 
 4. JPA / hibernate
-5. h2 database local
+5. h2 local database
 
 
 
