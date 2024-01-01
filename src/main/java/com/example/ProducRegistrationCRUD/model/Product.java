@@ -19,6 +19,6 @@ public class Product {
     private String name;
     private int quantity;
     @Column(name = "product_value")
-    private float produc_value;
+    private float product_value;
 
 }
